@@ -1,0 +1,11 @@
+{
+  "apps": {
+    "T7PFKCJ76": {
+      "app_id": "A05RNH84T0A",
+      "IsDev": false,
+      "team_domain": "nakamulack",
+      "team_id": "T7PFKCJ76"
+    }
+  },
+  "default": "nakamulack"
+}
