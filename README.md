@@ -1,5 +1,7 @@
 # Setup
 
+![here](https://github.com/nakamuloud/awsome-custom-workflow/blob/main/assets/description.gif)
+
 ## Notion Setup
 
 ### Publish token
