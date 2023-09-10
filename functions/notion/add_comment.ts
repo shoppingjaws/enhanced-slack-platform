@@ -2,7 +2,7 @@ import { DefineFunction, Schema, SlackFunction } from "deno-slack-sdk/mod.ts";
 import { CreateMetadata } from "../../libs/metadata.ts";
 import { APIResponseError } from "https://deno.land/x/notion_sdk@v2.2.3/src/mod.ts";
 import { GetEmailsFromSlackUsers } from "../../libs/slack.ts";
-import { GetUserIdsFromEmail } from "../../libs/notion.ts";
+import { GetUsersFromEmail } from "../../libs/notion.ts";
 
 export const AddComment = DefineFunction({
   callback_id: "add_comment",
@@ -47,7 +47,7 @@ export default SlackFunction(
     );
     console.log(emails);
     if ("error" in emails) return emails;
-    const users = await GetUserIdsFromEmail(emails, meta);
+    const users = await GetUsersFromEmail(emails, meta);
     if ("error" in users) return users;
     // email[0] = author, email[1...] = mention
     const commentUsers = users.map((u) => {

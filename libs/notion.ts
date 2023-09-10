@@ -13,9 +13,8 @@ export async function ListAllNotionUsers(notion:Client,cursor?:string){
   return users.filter(u=>u.type === "person")
 }
 
-export async function GetUserIdsFromEmail(emails:string[],meta:Metadata):Promise<{id:string,email:string}[]|ErrorResult>{
-  const allUsers = await ListAllNotionUsers(meta.notion)
-  allUsers.filter(u=>
+export async function GetUsersFromEmail(emails:string[],meta:Metadata):Promise<{id:string,email:string}[]|ErrorResult>{
+  const allUsers = (await ListAllNotionUsers(meta.notion)).filter(u=>
     u.type === "person" &&  emails.includes(u.person.email ?? "")
   )
   const res = emails.map(e=>{
